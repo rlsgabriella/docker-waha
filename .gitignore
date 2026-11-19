@@ -1,0 +1,25 @@
+# Credenciais e segredos (nunca versionar)
+.env
+.env.*
+!.env.example
+mcp.json
+.kiro/settings/mcp.json
+*.pem
+*.key
+credentials*.json
+
+# Dados do n8n e exportacoes
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+n8n-data*.tar.gz
+n8nEventLog*.log
+
+# Arquivos de trabalho da instancia AWS
+aws-deploy/
+info.txt
+
+# Temporarios
+.aws-*.txt
+.probe*.txt
+*.log

@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "n8n-mcp": {
+      "type": "http",
+      "url": "http://SEU_IP:5678/mcp-server/http",
+      "headers": {
+        "Authorization": "Bearer COLE_AQUI_O_TOKEN_DO_N8N"
+      }
+    }
+  }
+}

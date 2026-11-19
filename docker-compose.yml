@@ -4,8 +4,30 @@ services:
   waha:
     image: devlikeapro/waha:latest
     container_name: waha
+    restart: always
     environment:
       - WAHA_DASHBOARD_NO_PASSWORD=true
       - WAHA_NO_API_KEY=true
+      - WHATSAPP_DEFAULT_ENGINE=NOWEB
     ports:
       - "3000:3000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: n8n
+    restart: always
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_HOST=localhost
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - NODE_ENV=production
+      - WEBHOOK_URL=http://localhost:5678/
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+volumes:
+  n8n_data:
